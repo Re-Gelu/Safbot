@@ -18,7 +18,7 @@ async def on_startup(dp):
     await set_default_commands(dp)
     await on_startup_notify(dp)
 
-    print("~~~~~ Bot was started ~~~~~")
+    print("~~~~~  Bot was started  ~~~~~")
 
 
 if __name__ == "__main__":
