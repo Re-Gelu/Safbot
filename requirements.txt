@@ -1,0 +1,10 @@
+pyTelegramBotAPI
+fake-useragent
+idna
+pip
+requests
+setuptools
+urllib3
+aiogram
+bs4
+pyQiwiP2P
