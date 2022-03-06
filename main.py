@@ -18,8 +18,6 @@ async def on_startup(dp):
     await set_default_commands(dp)
     await on_startup_notify(dp)
 
-    asyncio.create_task(update_last_profit())
-    asyncio.create_task(check_update_bot())
     print("~~~~~ Bot was started ~~~~~")
 
 
