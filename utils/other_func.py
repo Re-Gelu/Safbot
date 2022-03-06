@@ -163,4 +163,3 @@ async def check_update_bot():
 # Получение текущей даты
 def get_dates():
     return datetime.datetime.today().replace(microsecond=0)
->>>>>>> 18e6b197b202652f06bfa82adf2e0d6d5a9ffb2c
