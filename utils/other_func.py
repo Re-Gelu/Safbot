@@ -15,17 +15,7 @@ from utils.db_api.sqlite import get_settingsx, update_settingsx
 # Уведомление и проверка обновления при запуске скрипта
 async def on_startup_notify(dp: Dispatcher):
     if len(admins) >= 1:
-        update_link = "https"
-
-        response = requests.get(update_link)
-        soup_parse = BeautifulSoup(response.text, "html.parser")
-        get_bot_info = soup_parse.select("p[class$='CDt4Ke zfr3Q']")[0].text.split("=")
-        if float(get_bot_info[0]) <= float(bot_version):
-            await send_all_admin(f"<b>✅ Бот был успешно запущен</b>\n"
-                                 f"➖➖➖➖➖➖➖➖➖➖\n"
-                                 f"{bot_description}")
-        else:
-        	await send_all_admin(f"<b>✅ Бот был успешно запущен</b>\n"
+        await send_all_admin(f"<b>✅ Бот был успешно запущен</b>\n"
                                  f"➖➖➖➖➖➖➖➖➖➖\n"
                                  f"{bot_description}")
 
@@ -80,17 +70,6 @@ async def update_last_profit():
 async def check_update_bot():
     while True:
         await asyncio.sleep(86400)
-        update_link = "https"
-
-        response = requests.get(update_link)
-        soup_parse = BeautifulSoup(response.text, "html.parser")
-        get_bot_info = soup_parse.select("p[class$='CDt4Ke zfr3Q']")[0].text.split("=")
-        if float(get_bot_info[0]) > float(bot_version):
-            update_discription = get_bot_info[2].split("**")
-            update_discription = "\n".join(update_discription)
-            await send_all_admin(f"<b>✅ Бот был успешно запущен</b>\n"
-                                 f"➖➖➖➖➖➖➖➖➖➖\n"
-                                 f"{bot_description}")
 
 # Получение текущей даты
 def get_dates():
