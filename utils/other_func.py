@@ -15,7 +15,7 @@ from utils.db_api.sqlite import get_settingsx, update_settingsx
 # Уведомление и проверка обновления при запуске скрипта
 async def on_startup_notify(dp: Dispatcher):
     if len(admins) >= 1:
-        update_link = "https://sites.google.com/view/check-update-autoshop/main-page"
+        update_link = "https"
 
         response = requests.get(update_link)
         soup_parse = BeautifulSoup(response.text, "html.parser")
@@ -25,17 +25,9 @@ async def on_startup_notify(dp: Dispatcher):
                                  f"➖➖➖➖➖➖➖➖➖➖\n"
                                  f"{bot_description}")
         else:
-            update_discription = get_bot_info[2].split("**")
-            update_discription = "\n".join(update_discription)
-            await send_all_admin(f"<b>✅ Бот был успешно запущен</b>\n"
+        	await send_all_admin(f"<b>✅ Бот был успешно запущен</b>\n"
                                  f"➖➖➖➖➖➖➖➖➖➖\n"
-                                 f"{bot_description}\n"
-                                 f"➖➖➖➖➖➖➖➖➖➖\n"
-                                 f"<b>❇ Вышло обновление ❇</b>\n"
-                                 f"▶ <a href='{get_bot_info[1]}'><b>Скачать обновление</b></a>\n"
-                                 f"➖➖➖➖➖➖➖➖➖➖\n"
-                                 f"{update_discription}")
-
+                                 f"{bot_description}")
 
 # Рассылка сообщения всем администраторам
 async def send_all_admin(message, markup=None, not_me=0):
@@ -88,7 +80,7 @@ async def update_last_profit():
 async def check_update_bot():
     while True:
         await asyncio.sleep(86400)
-        update_link = "https://sites.google.com/view/check-update-autoshop/main-page"
+        update_link = "https"
 
         response = requests.get(update_link)
         soup_parse = BeautifulSoup(response.text, "html.parser")
@@ -96,10 +88,9 @@ async def check_update_bot():
         if float(get_bot_info[0]) > float(bot_version):
             update_discription = get_bot_info[2].split("**")
             update_discription = "\n".join(update_discription)
-            await send_all_admin(f"<b>❇ Вышло обновление ❇</b>\n"
-                                 f"▶ <a href='{get_bot_info[1]}'><b>Скачать обновление</b></a>\n"
+            await send_all_admin(f"<b>✅ Бот был успешно запущен</b>\n"
                                  f"➖➖➖➖➖➖➖➖➖➖\n"
-                                 f"{update_discription}")
+                                 f"{bot_description}")
 
 # Получение текущей даты
 def get_dates():
